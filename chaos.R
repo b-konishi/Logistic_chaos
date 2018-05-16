@@ -50,10 +50,10 @@ saveGIF({
       }
     }
     d = (max(b)-min(b))/10
-    plot(1:T, b, ylim=c(min(b)-d, max(b)+d), xlab="", ylab="", type="b")
+    plot(1:T, b, ylim=c(min(b)-d, max(b)+d), xlab="", ylab="", lwd=2, type="b")
     title(sprintf("Logistic Map: r=%3.1f, Period=%.0f", r[i], period), cex.main=2)
   }
-}, movie.name="test.gif", interval=1.0)
+}, movie.name="logistic.gif", interval=1.0)
  
 
 
@@ -82,7 +82,7 @@ for (i in 1:length(r)) {
     }
   }
   d = (max(b)-min(b))/10
-  plot(1:T, b, ylim=c(min(b)-d, max(b)+d), ylab="", xlab="", cex.axis=2, type="b")
+  plot(1:T, b, ylim=c(min(b)-d, max(b)+d), ylab="", xlab="", lwd=3, cex.axis=2, type="b")
   title(sprintf("Logistic-Map: r=%3.1f, Period=%.0f", r[i], period),cex.main=2)
 }
 dev.off()
@@ -91,19 +91,19 @@ dev.off()
 
 
 # 分岐図(周期グラフのrを利用しているので注意)
-png("bifurcation08.png", width=1024, height=1024)
-a = 0.8
-rb = seq(from=2.5, to=4, by=0.001)
-for (i in 1:1000) {
-  a = rb*a*(1-a)
-}
-for (i in 1:1000) {
-  a = rb*a*(1-a)
-
-  plot(rb, a, xlim=c(rb[1],rev(rb)[1]), ylim=c(0,1), xlab="", ylab="", cex=0.001, cex.axis=2, pch=20)
-  par(new=T)
-  abline(v=r, lty=2)
-  par(new=T)
-}
-dev.off()
+# png("bifurcation08.png", width=1024, height=1024)
+# a = 0.8
+# rb = seq(from=2.5, to=4, by=0.001)
+# for (i in 1:1000) {
+#   a = rb*a*(1-a)
+# }
+# for (i in 1:1000) {
+#   a = rb*a*(1-a)
+# 
+#   plot(rb, a, xlim=c(rb[1],rev(rb)[1]), ylim=c(0,1), xlab="", ylab="", cex=0.001, cex.axis=2, pch=20)
+#   par(new=T)
+#   abline(v=r, lty=2)
+#   par(new=T)
+# }
+# dev.off()
 
