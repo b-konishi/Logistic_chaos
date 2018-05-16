@@ -1,13 +1,35 @@
 library(animation)
 
 
+# ロジスティック関数グラフ
+png("logistic_tx.png", width=1024, height=1024)
+logistic.tx = function(t) 1/(1+exp(-t))
+plot(logistic.tx, xlim=c(-5,5), ylim=c(0,1), xlab="", ylab="", lwd=3, cex.axis=2)
+abline(v=0, lty=2)
+abline(h=0, lty=2)
+abline(h=1, lty=2)
+abline(h=0.5, lty=2)
+dev.off()
 
+
+# 漸化式グラフ
+png("logistic_xx.png", width=1024, height=1024)
+logistic.xx = function(a) 2*a*(1-a)
+plot(logistic.xx, xlab="", ylab="", lwd=3, cex.axis=2)
+abline(v=0, lty=2)
+abline(v=1, lty=2)
+abline(h=0, lty=2)
+abline(h=1, lty=2)
+abline(h=0.5, lty=2)
+dev.off()
+
+
+# 周期グラフ(gif)
 a = 0.8
 r = seq(from=2.5, to=4, by=0.1)
 for (i in 1:1000) {
   a = r*a*(1-a)
 }
-# 周期グラフ
 saveGIF({
   ani.options(loop = 1, width=1440, height=1440)
   # par(mfrow = c(3,2))
@@ -33,13 +55,15 @@ saveGIF({
   }
 }, movie.name="test.gif", interval=1.0)
  
+
+
+# 周期グラフ(png)
 png("period.png", width=1024, height=1024)
 a = 0.8
 r = seq(from=2.6, to=4, length=4)
 for (i in 1:1000) {
   a = r*a*(1-a)
 }
-# 周期グラフ
 par(mfrow = c(2,2))
 T = 20
 for (i in 1:length(r)) {
@@ -66,8 +90,8 @@ dev.off()
 
 
 
+# 分岐図(周期グラフのrを利用しているので注意)
 png("bifurcation08_wide.png", width=1000, height=600)
-# 分岐図
 a = 0.8
 rb = seq(from=2.5, to=4, by=0.001)
 for (i in 1:1000) {
@@ -82,16 +106,4 @@ for (i in 1:1000) {
   par(new=T)
 }
 dev.off()
-
-
-
-
-
-
-
-
-
-
-
-
 
