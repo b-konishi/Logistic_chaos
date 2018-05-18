@@ -91,9 +91,10 @@ dev.off()
 
 
 # 分岐図(周期グラフのrを利用しているので注意)
-png("bifurcation08_wide.png", width=1000, height=600)
+png("test.png", width=1024, height=1024)
 a = 0.8
 rb = seq(from=2.5, to=4, by=0.001)
+#rb = seq(from=3.4, to=3.6, by=0.0001)
 for (i in 1:1000) {
   a = rb*a*(1-a)
 }
