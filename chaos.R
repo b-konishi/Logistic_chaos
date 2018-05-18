@@ -91,7 +91,7 @@ dev.off()
 
 
 # 分岐図(周期グラフのrを利用しているので注意)
-png("bifurcation08_linein.png", width=1024, height=1024)
+png("bifurcation08_wide.png", width=1000, height=600)
 a = 0.8
 rb = seq(from=2.5, to=4, by=0.001)
 for (i in 1:1000) {
@@ -102,8 +102,8 @@ for (i in 1:1000) {
 
   plot(rb, a, xlim=c(rb[1],rev(rb)[1]), ylim=c(0,1), xlab="", ylab="", cex=0.001, cex.axis=2, pch=20)
   par(new=T)
-  abline(v=r, lty=2)
-  par(new=T)
+  #abline(v=r, lty=2)
+  #par(new=T)
 }
 dev.off()
 
