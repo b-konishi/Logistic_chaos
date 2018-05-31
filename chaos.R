@@ -18,7 +18,7 @@ logistic.xx = function(a) 2*a*(1-a)
 identity.y = function(x) x
 plot(logistic.xx, xlab="", ylab="", lwd=3, cex.axis=2)
 par(new=T)
-plot(identity.y, xlab="", ylab="", lty=2)
+plot(identity.y, xlab="", ylab="", lty=2, axes=FALSE)
 abline(v=0, lty=2)
 abline(v=1, lty=2)
 abline(h=0, lty=2)
